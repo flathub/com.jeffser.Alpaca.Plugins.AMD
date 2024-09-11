@@ -13,6 +13,7 @@
             "name": "rocm",
             "buildsystem": "simple",
             "build-commands": [
+                "cp lib/ollama/rocblas/library/TensileLibrary_lazy_gfx1030.dat lib/ollama/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
                 "cp -r --remove-destination * ${FLATPAK_DEST}"
             ],
             "post-install": [
