@@ -13,8 +13,10 @@
             "name": "rocm",
             "buildsystem": "simple",
             "build-commands": [
-                "cp lib/ollama/rocblas/library/TensileLibrary_lazy_gfx1030.dat lib/ollama/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
-                "cp -r --remove-destination * ${FLATPAK_DEST}"
+                "mkdir temp",
+                "tar -xvf ollama-rocm.tgz -C temp/",
+                "cp ./temp/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1030.dat ./temp/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
+                "cp -r --remove-destination ./temp/* ${FLATPAK_DEST}"
             ],
             "post-install": [
                 "rm ${FLATPAK_DEST}/com.jeffser.Alpaca.Plugins.AMD.metainfo.xml",
@@ -22,9 +24,10 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/ollama/ollama/releases/download/v0.5.7/ollama-linux-amd64-rocm.tgz",
-                    "sha256": "b597a65498a1409bca0ac35e726f6831b0da5fdb08cf642df6111e7efd9f2fa3"
+                    "type": "file",
+                    "url": "https://github.com/ollama/ollama/releases/download/v0.5.11/ollama-linux-amd64-rocm.tgz",
+                    "sha256": "accf79a3a13b8d620a1090d106f28ee36c9e16c4f52d02dc31e81ce9d7f8ba56",
+                    "dest-filename": "ollama-rocm.tgz"
                 },
                 {
                     "type": "file",
