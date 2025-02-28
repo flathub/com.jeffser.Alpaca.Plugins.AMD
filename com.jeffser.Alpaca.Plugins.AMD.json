@@ -16,7 +16,8 @@
                 "mkdir temp",
                 "tar -xvf ollama-rocm.tgz -C temp/",
                 "cp ./temp/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1030.dat ./temp/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
-                "cp -r --remove-destination ./temp/* ${FLATPAK_DEST}"
+                "mkdir -p ${FLATPAK_DEST}/lib/ollama",
+                "cp -r --remove-destination ./temp/lib/ollama/rocm/* ${FLATPAK_DEST}/lib/ollama"
             ],
             "post-install": [
                 "install -Dm0644 com.jeffser.Alpaca.Plugins.AMD.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
