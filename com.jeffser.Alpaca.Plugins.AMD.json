@@ -15,7 +15,7 @@
             "build-commands": [
                 "mkdir rocm",
                 "tar -xvf ollama-rocm.tgz -C rocm/",
-                "ln -s rocm/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1030.dat rocm/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
+                "ln -s ./rocm/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1030.dat ./rocm/lib/ollama/rocm/rocblas/library/TensileLibrary_lazy_gfx1010.dat",
                 "cp -rf --remove-destination ./rocm/* ${FLATPAK_DEST}/"
             ],
             "post-install": [
