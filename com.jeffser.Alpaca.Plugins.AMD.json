@@ -15,17 +15,39 @@
             "build-commands": [
             	"cp -rf --remove-destination ./* ${FLATPAK_DEST}/"
             ],
-            "post-install": [
-                "rm ${FLATPAK_DEST}/com.jeffser.Alpaca.Plugins.AMD.metainfo.xml",
-                "install -Dm0644 com.jeffser.Alpaca.Plugins.AMD.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
-            ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://github.com/ollama/ollama/releases/download/v0.5.13/ollama-linux-amd64-rocm.tgz",
                     "sha256": "b597a65498a1409bca0ac35e726f6831b0da5fdb08cf642df6111e7efd9f2fa3",
                     "strip-components": 0
-                },
+                }
+            ]
+        },
+        {
+    		"name": "libnuma",
+    		"buildsystem": "autotools",
+    		"build-commands": [
+    			"autoreconf -i",
+    			"./configure --prefix=${FLATPAK_DEST}",
+    			"make",
+    			"make install"
+    		],
+    		"sources": [
+    			{
+    				"type": "archive",
+    				"url": "https://github.com/numactl/numactl/releases/download/v2.0.18/numactl-2.0.18.tar.gz",
+    				"sha256": "b4fc0956317680579992d7815bc43d0538960dc73aa1dd8ca7e3806e30bc1274"
+    			}
+    		]
+    	},
+        {
+            "name": "metainfo",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm0644 com.jeffser.Alpaca.Plugins.AMD.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
+            ],
+            "sources": [
                 {
                     "type": "file",
                     "path": "com.jeffser.Alpaca.Plugins.AMD.metainfo.xml"
