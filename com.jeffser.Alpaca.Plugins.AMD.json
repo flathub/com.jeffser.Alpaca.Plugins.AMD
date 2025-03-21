@@ -18,8 +18,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/ollama/ollama/releases/download/v0.6.0/ollama-linux-amd64-rocm.tgz",
-                    "sha256": "ea0f4a99ddee46b3596fe30d81e517c13616174535e9daa4d6c9c976ca806fe2",
+                    "url": "https://github.com/ollama/ollama/releases/download/v0.6.2/ollama-linux-amd64-rocm.tgz",
+                    "sha256": "42f79aece299bb1b88e411ac75c30775e3a0a049e3cd40da5934b5219fdde65f",
                     "strip-components": 0
                 }
             ]
