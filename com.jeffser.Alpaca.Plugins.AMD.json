@@ -5,8 +5,8 @@
   "sdk": "org.gnome.Sdk//49",
   "build-extension": true,
   "cleanup": [
-        "*.a",
-        "*.la"
+    "*.a",
+    "*.la"
   ],
   "modules": [
     {
